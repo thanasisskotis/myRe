@@ -1,0 +1,113 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #fff0f5;
+  font-family: 'Segoe UI', sans-serif;
+  height: 100vh;
+  overflow-y: auto;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.collage-wrapper {
+  width: 100%;
+  max-width: 1300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.collage {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.image-card {
+  position: relative;
+  width: calc(25% - 25px); /* 5 per row with gap */
+  min-width: 180px;
+  background-color: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.image-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 16px;
+  transition: transform 0.4s ease;
+}
+
+.image-card:hover img {
+  transform: scale(1.06);
+}
+
+.details {
+  position: absolute;
+  bottom: 0;
+  background: rgba(255, 105, 180, 0.9);
+  color: white;
+  width: 100%;
+  padding: 8px;
+  text-align: center;
+  font-size: 0.8rem;
+  font-weight: bold;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 0 0 16px 16px;
+  white-space: pre-line; /* allows line breaks via <br> or \n */
+}
+
+.image-card:hover .details {
+  opacity: 1;
+}
+
+.row-message {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #ff69b4;
+  text-shadow: 3px 3px 10px white;
+  text-align: center;
+  width: 100%;
+  margin: 2rem auto 1rem;
+  flex-basis: 100%;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .image-card {
+    width: calc(33.33% - 20px); /* 3 per row */
+  }
+
+  .row-message {
+    font-size: 2rem;
+  }
+
+  .details {
+    font-size: 0.75rem;
+    padding: 6px;
+  }
+}
+
+@media (max-width: 600px) {
+  .image-card {
+    width: calc(50% - 20px); /* 2 per row */
+  }
+
+  .row-message {
+    font-size: 1.8rem;
+  }
+}
